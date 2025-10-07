@@ -6,6 +6,8 @@ dotenv.config();
 
 //routes
 import authRouter from "./routes/authRoutes.js";
+import userRouter from "./routes/userRoutes.js";
+
 
 //database
 import connectDB from "./config/mongodb.js";
@@ -24,8 +26,9 @@ app.use(cors({
 //API Endpoints
 app.get('/', (req, res) => {
     res.send('API Working!');
-})
+}) 
 app.use('/api/auth', authRouter)
+app.use('/api/user', userRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
